@@ -1,0 +1,241 @@
+/* el-table */
+:deep(.el-table) {
+  background-color: rgb(28, 48, 70) !important;
+  color: #dcdfe6;
+  flex-grow: 1; // 让表格占据 table-container 的所有可用垂直空间
+
+  &, .el-table__inner-wrapper, .el-table__body-wrapper {
+    background-color: inherit !important;
+  }
+
+  .el-table__inner-wrapper::before {
+    display: none;
+  }
+
+  .el-table__header-wrapper th, .el-table__header th {
+    background-color: rgba(10, 73, 134);
+    color: #4db3ff;
+    border-color: rgba(255, 255, 255, 0.2);
+    text-align: center;
+
+    .cell {
+      font-weight: 600;
+      font-size: 14px;
+    }
+  }
+
+
+  .el-table__row {
+    background-color: transparent !important;
+
+    td {
+      background-color: inherit !important;
+      color: #ffffff !important;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+      text-align: center;
+    }
+  }
+
+  .el-table__row--striped td {
+    background-color: rgba(255, 255, 255, 0.04) !important;
+  }
+
+  .el-table__row:hover td {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  &::before, &::after {
+    display: none;
+  }
+
+  .el-table__border-left-patch {
+    background-color: transparent !important;
+  }
+
+  .el-table__body-wrapper {
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgb(28, 48, 70);
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 4px;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+}
+
+
+/* el-form */
+:deep(.el-form) {
+  .el-form-item {
+    margin-bottom: 0;
+  }
+
+  .el-form-item__label {
+    color: #ffffff;
+    font-weight: 500;
+    margin-bottom: 0;
+  }
+}
+
+:deep(.el-input) {
+  .el-input__wrapper {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: none !important;
+
+    &.is-focus {
+      border-color: #409eff;
+    }
+  }
+
+  .el-input__inner {
+    color: #e5eaf3;
+
+    &::placeholder {
+      color: #7c828d;
+    }
+  }
+
+  .el-input__icon {
+    color: #7c828d;
+  }
+}
+
+.el-form-item {
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+/* el-dialog */
+:deep(.el-dialog) {
+  width: 440px !important; // 稍微增加宽度
+  border-radius: 8px; // 增大圆角
+  background: linear-gradient(145deg, #fff, #f8fbff) !important;
+  box-shadow: 0 12px 48px -12px rgba(24, 144, 255, 0.16);
+  animation: dialogSlideIn 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+
+  .el-dialog__header {
+    background: linear-gradient(to right, #fff, #f8fbff);
+    color: #1677ff; // 调整蓝色饱和度
+    font-size: 18px; // 微调字号
+    font-weight: 600;
+    letter-spacing: 0.5px; // 增加字母间距
+    border-bottom: 1px solid rgba(229, 230, 235, 0.6);
+    padding: 16px 24px;
+    margin: 0;
+
+    .el-dialog__title {
+      display: flex;
+      align-items: center;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 3px;
+        height: 16px;
+        background: #1677ff;
+        margin-right: 12px;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  .el-dialog__body {
+    padding: 24px 32px;
+    color: rgba(0, 0, 0);
+    line-height: 1.6;
+
+    .el-form-item {
+      margin-bottom: 16px; // 为每个表单项添加底部间距
+    }
+
+    p:not(:last-child) {
+      margin-bottom: 12px;
+    }
+  }
+
+  .el-dialog__footer {
+    padding: 16px 24px;
+    background: rgba(247, 249, 252, 0.6);
+    backdrop-filter: blur(2px);
+
+    .el-button {
+      min-width: 96px;
+      border-radius: 6px;
+      font-size: 14px;
+      padding: 9px 24px;
+      margin: 0;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+      + .el-button {
+        margin-left: 12px;
+      }
+
+      &:first-child {
+        background: #fff;
+        color: #434343;
+        border: 1px solid #d9d9d9;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+
+        &:hover {
+          color: #1677ff;
+          border-color: #8dc5ff;
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(24, 144, 255, 0.12);
+        }
+      }
+    }
+
+    .el-button--primary {
+      background: linear-gradient(135deg, #389fff, #1677ff);
+      border: none;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+        border-radius: 5px;
+      }
+
+      &:hover {
+        background: linear-gradient(135deg, #57abff, #389fff);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(24, 144, 255, 0.24);
+      }
+
+      &:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 6px rgba(24, 144, 255, 0.2);
+      }
+    }
+  }
+}
+
+@keyframes dialogSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
